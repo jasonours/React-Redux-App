@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-import { pokeReducer } from './reducers';
+import { magicReducer } from './reducers';
 
 import App from './App';
 
@@ -12,7 +12,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 
-const store = createStore(pokeReducer, applyMiddleware(thunk))
+const store = createStore(magicReducer, applyMiddleware(thunk))
 
 
 const rootElement = document.getElementById('root');

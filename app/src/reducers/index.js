@@ -1,4 +1,4 @@
-import { CATCH_POKE, UPDATE_POKE, ERROR_POKE } from '../actions';
+import { FETCH_CARD, UPDATE_CARD, ERROR_CARD } from '../actions';
 
 const initialState = {
     data: [],
@@ -6,21 +6,21 @@ const initialState = {
     error: ""
 }
 
-export const pokeReducer = (state = initialState, action) => {
+export const magicReducer = (state = initialState, action) => {
     switch(action.type) {
-        case CATCH_POKE:
+        case FETCH_CARD:
             return {
                 ...state,
                 isFetching: true,
                 data: []
             }
-        case UPDATE_POKE:
+        case UPDATE_CARD:
             return {
                 ...state,
                 isFetching: false,
                 data: action.payload
             }
-        case ERROR_POKE:
+        case ERROR_CARD:
             return {
                 ...state,
                 isFetching: false,

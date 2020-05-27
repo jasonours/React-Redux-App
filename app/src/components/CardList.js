@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPoke } from '../actions';
+import { getMagic } from '../actions';
 
 const CardList = (props) => {
     return (
@@ -8,18 +8,18 @@ const CardList = (props) => {
             {props.error ? (
             <div>{props.error}</div>
             ) : (
-            props.data.map(pokemon => 
-                <div className="card" key={pokemon.id}>
-                    <div className="row">
-                        <div className="column">
-                            <img src={pokemon.imageUrl} alt="Pokemon Card"></img>
+            props.data.map(magic => 
+                <div className="card" key={magic.id}>
+                    <div>
+                        <div>
+                            <img src={magic.imageUrl} alt="Magic Card"></img>
                         </div>
-                        <div className="column">
+                        <div>
                             <div >
-                                <h3>{pokemon.name}</h3>
-                                <p>Number: {pokemon.number}</p>
-                                <p>Rarity: {pokemon.rarity}</p>
-                                <p>Type: {pokemon.subtype}</p>
+                                <h3>{magic.name}</h3>
+                                <p>Number: {magic.number}</p>
+                                <p>Rarity: {magic.rarity}</p>
+                                <p>Set: {magic.setName}</p>
                             </div>
                         </div>
                     </div>
@@ -36,4 +36,4 @@ const mapStateToProps = state => {
     };
 };
  
-export default connect(mapStateToProps, { getPoke })(CardList);
+export default connect(mapStateToProps, { getMagic })(CardList);

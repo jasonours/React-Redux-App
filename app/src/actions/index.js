@@ -1,24 +1,22 @@
 import axios from 'axios';
 
-export const CATCH_POKE = "CATCH_POKE";
-export const UPDATE_POKE = "UPDATE_POKE";
-export const ERROR_POKE = "ERROR_POKE";
+export const FETCH_CARD = "FETCH_CARD";
+export const UPDATE_CARD = "UPDATE_CARD";
+export const ERROR_CARD = "ERROR_CARD";
 
 
-export const getPoke = ()  => {
+export const getMagic = ()  => {
     return  dispatch => {
-        dispatch({ type: CATCH_POKE });
+        dispatch({ type: FETCH_CARD });
         axios
-            .get("https://api.pokemontcg.io/v1/cards")
-            // .get("http://gateway.marvel.com/v1/public/characters?apikey=06b071bd1512b47f17c9eae3b2cbaf10")
+            .get("https://api.magicthegathering.io/v1/cards")
             .then(response => {
-                dispatch({ type: UPDATE_POKE, payload: response.data.cards})
+                dispatch({ type: UPDATE_CARD, payload: response.data.cards})
             })
 
             .catch(err => {
                 console.error("ERROR ", err)
-                dispatch({ type: ERROR_POKE, payload: "Error fetching data from api"})
-
+                dispatch({ type: ERROR_CARD, payload: "Error fetching data from the API"})
             })
     }
 }
