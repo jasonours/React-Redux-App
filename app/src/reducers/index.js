@@ -12,7 +12,6 @@ export const magicReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: true,
-                data: []
             }
         case UPDATE_CARD:
             return {

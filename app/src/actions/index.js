@@ -9,7 +9,7 @@ export const getMagic = ()  => {
     return  dispatch => {
         dispatch({ type: FETCH_CARD });
         axios
-            .get("https://api.magicthegathering.io/v1/cards")
+            .get('https://api.magicthegathering.io/v1/cards')
             .then(response => {
                 dispatch({ type: UPDATE_CARD, payload: response.data.cards})
             })

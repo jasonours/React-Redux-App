@@ -32,6 +32,7 @@ const CardList = (props) => {
 const mapStateToProps = state => {
     return {
         data: state.data,
+        isFetching: state.isFetching,
         error: state.error
     };
 };
